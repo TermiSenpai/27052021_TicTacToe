@@ -1,2 +1,3 @@
-def main():
-      pass
+from Game import Game
+
+Game()
