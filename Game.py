@@ -1,6 +1,9 @@
 from Board import Board
 from Player import Player
 
+import os
+import platform
+
 
 class Game:
 
@@ -20,19 +23,26 @@ class Game:
         self.board.reset()
         self.turno = 0
 
+    def clearScreen(self):
+        if platform.system() == 'Windows':
+            os.system("cls")
+        elif platform.system() == 'Linux':
+            os.system("clear")
+
     def juega(self):
+        self.clearScreen()
         self.board.dibuja()
         while self.turno < self.MAXPLAYS:
             player = self.player[self.turno % 2]
             self.turno += 1
-
-            # https://stackoverflow.com/questions/716477/join-list-of-lists-in-python
-            # jugadasLibres = [j for i in self.board.jugadas for j in i]
 
             jugadasLibres = []
             for fila in self.board.jugadas:
                 jugadasLibres += fila
 
             jugada = player.elige(jugadasLibres)
-
-            # self.board.dibuja()
+            self.clearScreen()
+            print(self.turno)
+            self.board.boardUpdate(jugada, self.turno, self.MARK)
+            self.board.dibuja()
+        print("El juego ha finalizado.")
