@@ -11,7 +11,7 @@ class Player:
 
         while jugada not in jugadasValidas:
             try:
-                jugada = int(input(f" jugador {self.mark} elige pos: "))
+                jugada = int(input(f"\t jugador {self.mark} elige pos: "))
             except ValueError:
                 print("")
                 jugada = 0
@@ -21,6 +21,6 @@ class Player:
                 jugada = 0
             # comprobamos si el input es válido
             if jugada not in jugadasValidas:
-                print("No es una jugada válida. ")
+                print("\tNo es una jugada válida. ")
             
         return jugada

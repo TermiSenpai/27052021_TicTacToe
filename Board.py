@@ -49,7 +49,7 @@ class Board:
         self.jugadas[jugada] = playerMark
 
     def playerWin(self):
-"""
+        """
         
         FUTURE UPDATE
         
@@ -63,7 +63,7 @@ class Board:
         (7, 5, 3),
         (1, 5, 9),
         ]
-"""
+        """
         # ------------- TEMPORAL WIN CHECK ---------------- #
         case1 = self.jugadas[7] + self.jugadas[8] + self.jugadas[9]
         case2 = self.jugadas[4] + self.jugadas[5] + self.jugadas[6]
@@ -95,5 +95,5 @@ class Board:
     def cellEmpty(self, jugada):
         if self.jugadas[jugada] == "*":
             return True
-        print("La casilla está ocupada.")
+        print("\tLa casilla está ocupada.")
         return False

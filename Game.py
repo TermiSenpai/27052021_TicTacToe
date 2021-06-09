@@ -52,8 +52,8 @@ class Game:
             victory = self.board.playerWin()
             # Compruebo si el jugador con el turno actual, ha ganado con el último movimiento
             if victory == True:
-                print(f"El jugador {self.MARK[self.turno % 2]} es el ganador!")
+                print(f"\tEl jugador {self.MARK[self.turno % 2]} es el ganador!")
                 break
 
             self.turno += 1
-        print("El juego ha finalizado.")
+        print("\tEl juego ha finalizado.")
