@@ -42,7 +42,7 @@ class Game:
             while cell != True:
                 jugada = player.elige()
                 cell = self.board.cellEmpty(jugada)
-            
+
             # actualizo los datos de la tabla del juego
             self.board.boardUpdate(jugada, self.turno, self.MARK)
             # Limpio la pantalla para más comodidad
@@ -52,7 +52,8 @@ class Game:
             victory = self.board.playerWin()
             # Compruebo si el jugador con el turno actual, ha ganado con el último movimiento
             if victory == True:
-                print(f"\tEl jugador {self.MARK[self.turno % 2]} es el ganador!")
+                print(
+                    f"\tEl jugador {self.MARK[self.turno % 2]} es el ganador!")
                 break
 
             self.turno += 1

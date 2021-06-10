@@ -2,8 +2,6 @@ class Player:
 
     def __init__(self, mark):
         self.mark = mark
-    
-    
 
     def elige(self):
         jugadasValidas = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -22,5 +20,5 @@ class Player:
             # comprobamos si el input es válido
             if jugada not in jugadasValidas:
                 print("\tNo es una jugada válida. ")
-            
+
         return jugada
