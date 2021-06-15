@@ -8,9 +8,9 @@ class Board:
     def reset(self):
         # creo una lista con 10 valores para facilitar
         self.jugadas = ["*",
-                        "*", "*", "*",
-                        "*", "*", "*",
-                        "*", "*", "*"
+                        " ", " ", " ",
+                        " ", " ", " ",
+                        " ", " ", " "
                         ]
 
     def dibuja(self):
@@ -60,43 +60,20 @@ class Board:
             (1, 5, 9),
         ]
 
-
-        # ------------- TEMPORAL WIN CHECK ---------------- #
-        # Horizontal
-        case1 = self.jugadas[7] + self.jugadas[8] + self.jugadas[9]
-        case2 = self.jugadas[4] + self.jugadas[5] + self.jugadas[6]
-        case3 = self.jugadas[1] + self.jugadas[2] + self.jugadas[3]
-        # Vertical
-        case4 = self.jugadas[7] + self.jugadas[4] + self.jugadas[1]
-        case5 = self.jugadas[8] + self.jugadas[5] + self.jugadas[2]
-        case6 = self.jugadas[9] + self.jugadas[6] + self.jugadas[3]
-        # Diagonal
-        case7 = self.jugadas[7] + self.jugadas[5] + self.jugadas[3]
-        case8 = self.jugadas[1] + self.jugadas[5] + self.jugadas[9]
-        # Horizontal
-        if case1 == "XXX" or case1 == "OOO":
-            return True
-        elif case2 == "XXX" or case2 == "OOO":
-            return True
-        elif case3 == "XXX" or case3 == "OOO":
-            return True
-        # Vertical
-        elif case4 == "XXX" or case4 == "OOO":
-            return True
-        elif case5 == "XXX" or case5 == "OOO":
-            return True
-        elif case6 == "XXX" or case6 == "OOO":
-            return True
-        # Diagonal
-        elif case7 == "XXX" or case7 == "OOO":
-            return True
-        elif case8 == "XXX" or case8 == "OOO":
-            return True
-
+        for victoryLine in victoryLines:
+            suma = 0
+            for tupla in victoryLine:
+                casilla = self.jugadas[tupla]
+                if casilla == "X":
+                    suma += 1
+                elif casilla == "O":
+                    suma -= 1
+                if suma == 3 or suma == -3:
+                    return True
         return False
-
+    
     def cellEmpty(self, jugada):
-        if self.jugadas[jugada] == "*":
+        if self.jugadas[jugada] == " ":
             return True
         print("\tLa casilla está ocupada.")
         return False
